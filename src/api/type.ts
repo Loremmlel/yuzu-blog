@@ -19,6 +19,8 @@ export interface Tag {
     updateTime: string
 }
 
+export type GetTagListRes = PRes<Tag[]>
+
 export type Category = Omit<Tag, "tagName"> & { categoryName: string }
 
 export type GetCategoryListRes = PRes<Category[]>
@@ -128,4 +130,85 @@ export interface AddCommentReq {
     replyId?: number,
     commentContent: string,
     replyUserId?: number
+}
+
+export interface LeaveWord {
+    id: number,
+    userId: number,
+    content: string,
+    createTime: string,
+    nickname: string,
+    avatar: string,
+    commentCount: number,
+    likeCount: number,
+    favoriteCount: number
+}
+
+export type GetLeaveWordRes = PRes<LeaveWord>
+
+export interface Like {
+    id: string,
+    userId: number,
+    type: number,
+    typeId: number,
+    createTime: string,
+    updateTime: string
+}
+
+export type IsLikeRes = PRes<Like[]>
+
+export interface ApplyLinkReq {
+    name: string,
+    url: string,
+    description: string,
+    background: string,
+    email: string
+}
+
+export interface Link {
+    id: number,
+    name: string,
+    url: string,
+    description: string,
+    avatar: string
+}
+
+export type LinkListRes = PRes<Link[]>
+
+export interface treeHole {
+    nickname: string,
+    avatar: string,
+    content: string
+}
+
+export type GetTreeHoleListRes = PRes<treeHole>
+
+export interface UserInfo {
+    nickname: string;
+    username: string;
+    avatar: string;
+    intro: string;
+    registerType: number;
+    email: string;
+    roles: string[];
+    gender: number;
+    permissions: string[];
+    loginTime: string;
+    createTime: string;
+}
+
+export type GetUserInfoRes = PRes<UserInfo>
+
+export interface UserRegisterReq {
+    username: string,
+    password: string,
+    code: string,
+    email: string
+}
+
+export interface UpdateUserInfoReq {
+    nickname: string,
+    gender: number,
+    avatar: string,
+    intro: string
 }

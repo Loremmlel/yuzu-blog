@@ -2,7 +2,7 @@ import http from "@/utils/request.ts";
 import {AddCommentReq, GetArticleDetailRes, GetCommentRes, GetTimelineRes, PRes, WhereArticleRes} from "@/api/type.ts";
 
 // 获取文章详细
-export const getArticleDetail: (id: string | string[]) => GetArticleDetailRes = (id) => {
+export function getArticleDetail(id: string | string[]): GetArticleDetailRes {
     return http.request({
         url: `/article/detail/${id}`,
         method: "get"
@@ -10,8 +10,7 @@ export const getArticleDetail: (id: string | string[]) => GetArticleDetailRes = 
 }
 
 // 获取评论
-export const getComment: (type: number, typeId: number, pageNum: string, pageSize: string) => GetCommentRes
-    = (type, typeId, pageNum, pageSize) => {
+export function getComment(type: number, typeId: number, pageNum: string, pageSize: string): GetCommentRes {
     return http.request({
         url: '/comment/getComment',
         method: "get",
@@ -25,7 +24,7 @@ export const getComment: (type: number, typeId: number, pageNum: string, pageSiz
 }
 
 // 用户添加评论
-export const addComment: (data: AddCommentReq) => PRes<null> = (data) => {
+export function addComment(data: AddCommentReq): PRes<null> {
     return http.request({
         url: '/comment/auth/add/comment',
         method: "post",
@@ -34,7 +33,7 @@ export const addComment: (data: AddCommentReq) => PRes<null> = (data) => {
 }
 
 // 时间轴
-export const getTimeLine: () => GetTimelineRes = () => {
+export function getTimeLine(): GetTimelineRes {
     return http.request({
         url: '/article/timeLine',
         method: "get"

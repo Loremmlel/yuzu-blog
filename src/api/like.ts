@@ -1,10 +1,9 @@
 import http from "@/utils/request.ts";
 import {PRes} from "@/api/type.ts";
-
-// 收藏
-export function userFavorite(type: number, typeId: string): PRes<null> {
+// 点赞
+export function userLike(type: number, typeId: number): PRes<null> {
     return http.request({
-        url: '/favorite/auth/favorite',
+        url: '/like/auth/like',
         method: "post",
         params: {
             type,
@@ -13,10 +12,10 @@ export function userFavorite(type: number, typeId: string): PRes<null> {
     });
 }
 
-// 取消收藏
-export function cancelFavorite(type: number, typeId: string): PRes<null> {
+// 取消点赞文章
+export function cancelLike(type: number, typeId: string): PRes<null> {
     return http.request({
-        url: '/favorite/auth/favorite',
+        url: '/like/auth/like',
         method: "delete",
         params: {
             type,
@@ -25,10 +24,10 @@ export function cancelFavorite(type: number, typeId: string): PRes<null> {
     });
 }
 
-// 是否收藏
-export function isFavorite(type: number, typeId: string): PRes<boolean> {
+// 是否点赞
+export function isLike(type: number, typeId?: string) {
     return http.request({
-        url: '/favorite/whether/favorite',
+        url: '/like/whether/like',
         method: "get",
         params: {
             type,
