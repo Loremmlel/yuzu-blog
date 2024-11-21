@@ -1,0 +1,28 @@
+// 重写浏览器滚动条
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--scroll-bar-color);
+}
+
+// firefox
+* {
+  scrollbar-width: thin; /* 控制滚动条宽度 */
+  scrollbar-color: var(--scroll-bar-thumb-color) var(--scroll-bar-track-color); /* 设置滚动条颜色 */
+}
+
+body {
+  @media screen and (max-width: 910px) {
+    overflow-x: hidden; /* 隐藏水平滚动条 */
+  }
+}
