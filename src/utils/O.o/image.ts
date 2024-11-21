@@ -1,0 +1,1 @@
+export const loadingImage = "../../assets/images/img_loading.gif"
