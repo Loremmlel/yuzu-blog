@@ -8,7 +8,7 @@
  */
 const lazyBinding = (el: HTMLElement, binding: any) => {
     // 加载中的占位图片
-    const placeHold = "../assets/images/img_loading.gif"
+    const placeHold = "/src/assets/images/img_loading.gif"
 
     // 检查是否需要懒加载
     const {noLazy} = binding.value

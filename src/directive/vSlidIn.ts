@@ -21,7 +21,7 @@ function isBelowViewport(el: HTMLElement) {
 
 export default {
     mounted(el: HTMLElement) {
-        if (!isBelowViewport(el)) {
+        if (!isBelowViewport) {
             return
         }
         const animation = el.animate([

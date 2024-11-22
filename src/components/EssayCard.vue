@@ -44,7 +44,7 @@ function loadContent() {
   <div v-view-request="{callback: loadContent}" v-if="articleList.length > 0">
     <template v-for="(article, index) in articleList" :key="article.id">
       <div @click="router.push(`/article/${article.id}`)" class="h-92 md:h-60 mt-4 flex flex-col md:flex-row
-          card overflow-hidden shadow-md mb-5 mx-2 dark:bg-[#1d1d1d]">
+          card overflow-hidden shadow-md mb-5 mx-2 dark:bg-[#1d1d1d]" v-slide-in>
         <div class="w-full md:h-full md:w-1/2 h-40" v-if="index % 2 === 1 || width < 768">
           <div class="relative w-full h-full">
             <div class="relative img w-full h-full">

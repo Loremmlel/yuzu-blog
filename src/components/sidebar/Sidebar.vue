@@ -44,8 +44,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
-    <div>
+  <div class="flex flex-col gap-y-20 ml-10">
+    <div class="box-border">
       <InfoCard></InfoCard>
     </div>
     <div>

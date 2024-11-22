@@ -16,7 +16,7 @@ import vViewRequest from '@/directive/vViewRequest.ts'
 const app = createApp(App)
 const pinia = createPinia()
 app.directive('lazy', vLazy)
-app.directive('slid-in', vSlidIn)
+app.directive('slide-in', vSlidIn)
 app.directive('view-request', vViewRequest)
 app.use(globalComponent)
 app.use(router)

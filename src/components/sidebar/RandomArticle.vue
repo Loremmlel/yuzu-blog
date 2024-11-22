@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {ArticleRecommend, ArticleRelated} from "@/api/type.ts";
 import {getRandomArticle, getRelatedArticle} from "@/api/home.ts";
-import {formatDate} from "@vueuse/core";
 
 interface Props {
   title?: string,
@@ -18,12 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
   articleId: ''
 })
 
-const randomArticles: Ref<ArticleRecommend[]> = ref([{
-  id: '',
-  articleTitle: '',
-  articleCover: '',
-  createTime: ''
-}])
+const randomArticles: Ref<ArticleRecommend[]> = ref([])
 
 watch(() => props.articleId, () => {
 
@@ -41,7 +35,7 @@ async function randomArticle() {
 
 function formatDate(date: []) {
   date.forEach(element => {
-    item.createTime = item.createTime.split(' ')[0]
+    element.createTime = element.createTime.split(' ')[0]
   })
   return date
 }
@@ -76,7 +70,7 @@ function loadContent() {
 .random-container {
   display: flex;
   align-items: center;
-  margin: 10px 0;
+  margin: 10px;
 
   .random-image {
     width: 45%;

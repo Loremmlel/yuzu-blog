@@ -53,7 +53,6 @@ const website = useWebsiteStore()
   box-sizing: border-box;
   width: $card-width;
   height: 300px;
-  margin: $card-margin;
   border-radius: $border-radius;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;

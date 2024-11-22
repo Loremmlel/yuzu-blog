@@ -7,7 +7,7 @@ const website = useWebsiteStore()
 </script>
 
 <template>
-  <Main>
+  <Main :is-sidebar="true">
     <template #content>
       <div class="announcement">
         <SvgIcon name="notice" color="#409eff"></SvgIcon>

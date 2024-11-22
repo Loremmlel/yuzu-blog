@@ -33,7 +33,7 @@ async function loadContent() {
   </div>
   <div v-view-request="{callback: loadContent}">
     <!--首页轮播图，以及文章加载滑动动画-->
-    <Swiper class="h-[200px] recommend" loop navigation :pagination="{clickable: true}" :autoplay="{delay: true}"
+    <Swiper class="h-[200px] recommend" loop navigation :pagination="{clickable: true}" :autoplay="{delay: 2500}"
             :modules="modules" v-if="recommendArticles.length > 0">
       <swiper-slide v-for="recommendArticle in recommendArticles" :key="recommendArticle.id"
                     @click="router.push(`/article/${recommendArticle.id}`)">
@@ -78,7 +78,9 @@ async function loadContent() {
   }
 
   .el-image {
-    @media screen and (min-width: 760px) {
+    width: 100%;
+    height: auto;
+    @media screen and (min-width: 768px) {
       transform: translate(0, -20%);
     }
   }
