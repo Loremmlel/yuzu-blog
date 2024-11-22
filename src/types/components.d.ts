@@ -7,12 +7,33 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BottomRightLayout: typeof import('./../components/BottomRightLayout.vue')['default']
     Components: typeof import('./../components/index.vue')['default']
+    ElAvatar: typeof import('element-plus/es')['ElAvatar']
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
+    ElDrawer: typeof import('element-plus/es')['ElDrawer']
+    ElDropdown: typeof import('element-plus/es')['ElDropdown']
+    ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElLink: typeof import('element-plus/es')['ElLink']
+    ElMenu: typeof import('element-plus/es')['ElMenu']
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
+    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
+    Footer: typeof import('./../components/layout/Footer.vue')['default']
+    FullScreen: typeof import('./../components/FullScreen.vue')['default']
+    GoBottom: typeof import('./../components/GoBottom.vue')['default']
     Header: typeof import('./../components/layout/header/Header.vue')['default']
-    Layout: typeof import('./../components/layout/Layout.vue')['default']
+    Loading: typeof import('./../components/Loading.vue')['default']
     MoveMenu: typeof import('./../components/layout/header/MoveMenu.vue')['default']
+    ReadingMode: typeof import('./../components/ReadingMode.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./../components/SvgIcon.vue')['default']
+    ToTop: typeof import('./../components/ToTop.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

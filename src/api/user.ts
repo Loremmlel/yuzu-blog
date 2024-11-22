@@ -1,5 +1,3 @@
-
-// 用户登录
 import http from "@/utils/request.ts";
 import {GetUserInfoRes, PRes, UpdateUserInfoReq, UserRegisterReq} from "@/api/type.ts";
 
@@ -15,7 +13,7 @@ export function login(data: any) {
 }
 
 // 退出登录
-export function logout() {
+export function logout(): PRes<any> {
     return http({
         url: '/user/logout',
         method: 'post'
@@ -23,7 +21,7 @@ export function logout() {
 }
 
 // 第三方登录
-export function oauthLogin(accessToken: string,type: string,username: string) {
+export function oauthLogin(accessToken: string,type: string,username: string): PRes<any> {
     return http({
         url: '/user/login',
         headers: {

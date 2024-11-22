@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <svg :style="{width, height}">
-    <use :xlink:href="prefix + name" :fill="color"></use>
+    <use :xlink:href="props.prefix + props.name" :fill="props.color"></use>
   </svg>
 </template>
 

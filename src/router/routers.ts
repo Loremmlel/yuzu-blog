@@ -4,9 +4,15 @@ export const constantRouter: Readonly<RouteRecordRaw[]> = [
     {
         path: '/',
         name: 'layout',
-        component: () => import('@/views/layout/index.vue'),
+        component: () => import('@/views/layout.vue'),
         children: [
-
+            {
+                path: '',
+                name: 'home',
+                meta: {
+                    title: 'Yuzu-blog'
+                }
+            }
         ]
     }
 ]
