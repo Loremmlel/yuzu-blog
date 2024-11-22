@@ -1,7 +1,7 @@
 import http from "@/utils/request.ts";
 import {GetUserInfoRes, PRes, UpdateUserInfoReq, UserRegisterReq} from "@/api/type.ts";
 
-export function login(data: any) {
+export function login(data: any): PRes<any> {
     return http({
         url: '/user/login',
         headers: {

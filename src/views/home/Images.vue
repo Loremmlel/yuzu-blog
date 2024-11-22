@@ -14,7 +14,7 @@ onMounted(async () => {
   <div class="imgs">
     <ul>
       <li class="item" v-for="(image, index) in imageList" :key="index"
-          :style="{'background-image': `url('${image}')`}">
+          :style="{'background-image': `url(${image})`}">
       </li>
     </ul>
   </div>
@@ -25,6 +25,7 @@ onMounted(async () => {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   height: 100vh;
   z-index: -9;
   background-color: #363636;
@@ -93,7 +94,7 @@ onMounted(async () => {
   }
 
   17% {
-    opacity: 0;
+    opacity: 1;
     transform: scale(1.1);
   }
 
