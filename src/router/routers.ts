@@ -11,7 +11,7 @@ export const constantRouter: Readonly<RouteRecordRaw[]> = [
                 name: 'home',
                 component: () => import('@/views/home/Home.vue'),
                 meta: {
-                    title: 'Yuzu-blog'
+                    title: '柚子博客'
                 }
             }
         ]

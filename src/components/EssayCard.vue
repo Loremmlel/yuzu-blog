@@ -34,6 +34,10 @@ async function getArticleListFun() {
 function loadContent() {
   getArticleListFun()
 }
+
+;(() => {
+  getArticleListFun()
+})()
 </script>
 
 <template>

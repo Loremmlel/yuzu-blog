@@ -45,7 +45,7 @@ async function loadContent() {
             {{ recommendArticle.createTime }}
           </div>
           <div style="font-size: 18px">
-            {{ recommendArticle.articleContent}}
+            {{ recommendArticle.articleContent }}
           </div>
         </div>
         <el-image :src="recommendArticle.articleCover"></el-image>

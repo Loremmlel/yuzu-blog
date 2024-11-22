@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Images from "@/views/home/Images.vue";
 import Brand from "@/views/home/Brand.vue";
+import Main from './Main.vue'
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import Brand from "@/views/home/Brand.vue";
     <Images></Images>
     <Brand></Brand>
     <div class="bg">
-      <Home></Home>
+      <Main></Main>
     </div>
   </div>
 </template>
