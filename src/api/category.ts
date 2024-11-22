@@ -1,4 +1,4 @@
-import http from "@/utils/request.ts.ts";
+import http from "@/utils/request.ts";
 import {GetCategoryListRes} from "@/api/type.ts";
 
 // 查询分类列表

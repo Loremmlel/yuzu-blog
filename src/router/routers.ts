@@ -17,9 +17,25 @@ export const constantRouter: Readonly<RouteRecordRaw[]> = [
             {
                 path: '/timeline',
                 name: 'timeline',
-                component: () => import('@/views/Pigeonhole/Timeline.vue'),
+                component: () => import('@/views/pigeonhole/Timeline.vue'),
                 meta: {
                     title: '时间轴'
+                }
+            },
+            {
+                path: '/category/:id?',
+                component: () => import('@/views/pigeonhole/Category.vue'),
+                name: 'category',
+                meta: {
+                    title: '文章分类'
+                }
+            },
+            {
+                path: '/tags/:id?',
+                component: () => import('@/views/pigeonhole/Tags.vue'),
+                name: 'tags',
+                meta: {
+                    title: '文章标签'
                 }
             }
         ]
