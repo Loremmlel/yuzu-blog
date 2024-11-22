@@ -13,6 +13,14 @@ export const constantRouter: Readonly<RouteRecordRaw[]> = [
                 meta: {
                     title: '柚子博客'
                 }
+            },
+            {
+                path: '/timeline',
+                name: 'timeline',
+                component: () => import('@/views/Pigeonhole/Timeline.vue'),
+                meta: {
+                    title: '时间轴'
+                }
             }
         ]
     },

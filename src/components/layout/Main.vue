@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
   <div class="header">
     <slot name="header"></slot>
   </div>
-  <div v-if="onlyFatherContainer">
+  <div v-if="props.onlyFatherContainer">
     <div>
       <slot name="banner"></slot>
     </div>
@@ -27,16 +27,16 @@ const props = withDefaults(defineProps<Props>(), {
       <div class="content-container" style="width: 100%; max-width: 100rem">
         <slot name="content"></slot>
       </div>
-      <div class="information-container" v-if="isSidebar">
+      <div class="information-container" v-if="props.isSidebar">
         <slot name="information"></slot>
       </div>
     </div>
   </div>
-  <div class="div-container" :style="{'margin-top': marginTop}" v-if="!onlyFatherContainer">
+  <div class="div-container" :style="{'margin-top': props.marginTop}" v-if="!props.onlyFatherContainer">
     <div class="content-container">
       <slot name="content"></slot>
     </div>
-    <div class="information-container" v-if="isSidebar">
+    <div class="information-container" v-if="props.isSidebar">
       <slot name="information"></slot>
     </div>
   </div>
