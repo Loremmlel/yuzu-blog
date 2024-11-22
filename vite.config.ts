@@ -22,7 +22,13 @@ export default defineConfig(({mode}: ConfigEnv) => {
                 ext: '.gz',
                 deleteOriginFile: false
             }),
-            vue(),
+            vue({
+                template: {
+                    compilerOptions: {
+                        isCustomElement: (tag: string) => tag.startsWith('my-')
+                    }
+                }
+            }),
             createSvgIconsPlugin({
                 // 指定需要缓存的图标文件夹
                 iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],

@@ -1,31 +1,31 @@
 <script setup lang="ts">
 import {useWebsiteStore} from "@/store/website.ts";
 
-const useWebsite = useWebsiteStore()
+const website = useWebsiteStore()
 </script>
 
 <template>
-  <div class="Footer">
+  <div class="footer">
     <!-- 文章页脚 -->
-    <div class="footer_container">
-      <div class="footer_text">
-        <div>&copy;{{ useWebsite.webInfo?.websiteName }}</div>
-        <div>备案号：{{ useWebsite.webInfo?.recordInfo }}</div>
+    <div class="footer-container">
+      <div class="footer-text">
+        <div>&copy;{{ website.webInfo?.websiteName }}</div>
+        <div>备案号：{{ website.webInfo?.recordInfo }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.Footer {
+.footer {
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   height: 100px;
   // 渐变底部
-  background: var(--mao-bg-footer);
+  background: var(--yuzu-bg-footer);
 }
 
-.footer_container {
+.footer-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -33,7 +33,7 @@ const useWebsite = useWebsiteStore()
   align-items: center;
 }
 
-.footer_text {
+.footer-text {
   line-height: 20px;
   display: flex;
   justify-content: center;

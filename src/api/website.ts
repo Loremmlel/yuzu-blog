@@ -11,7 +11,7 @@ export function getWebsiteInfo(): GetWebsiteInfoRes {
 
 
 // 查询banner列表
-export async function backGetBanners(): PRes<[]> {
+export async function backGetBanners(): PRes<string[]> {
     return http({
         url: '/banners/list',
         method: 'get'

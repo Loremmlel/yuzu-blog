@@ -32,7 +32,7 @@ const router = useRouter()
 const mode = useColorMode()
 
 onMounted(async () => {
-  window.customElements.define('day-night-toggle-button', DayNightToggleButton)
+  window.customElements.define('my-day-night-toggle-button', DayNightToggleButton)
   await userStore.getInfo()
 })
 
@@ -195,7 +195,9 @@ function changeToggle({detail}) {
           <div class="flex-grow"></div>
           <!--日夜切换-->
           <div style="margin-right: 4.5rem; margin-top: -0.2rem;">
-            <day-night-toggle-button @change="changeToggle" size="1"></day-night-toggle-button>
+            <!--这里有个巨坑。自定义组件名称是DayNightToggleButton，如果使用day-night-toggle-button，vue会自动大驼峰化。-->
+            <!--认为是Vue组件。导致出现TypeError: constructor必须用new调用-->
+            <my-day-night-toggle-button @change="changeToggle" size="1"></my-day-night-toggle-button>
           </div>
           <!--搜索按钮-->
           <div class="search" @click="dialogVisible = true">
