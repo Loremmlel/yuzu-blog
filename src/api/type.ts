@@ -110,6 +110,7 @@ export interface Comment {
     parentId: number,
     replyId: number,
     commentContent: string,
+    commentUserId: number
     replyUserId: number,
     createTime: string,
     commentUserNickname: string,

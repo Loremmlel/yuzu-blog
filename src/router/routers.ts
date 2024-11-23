@@ -71,5 +71,13 @@ export const constantRouter: Readonly<RouteRecordRaw[]> = [
                 }
             }
         ]
+    },
+    {
+        path: '/article/:id',
+        name: 'article',
+        component: () => import('@/views/article/Article.vue'),
+        meta: {
+            title: '文章详情'
+        }
     }
 ]

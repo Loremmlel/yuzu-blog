@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import ReadingMode from "@/components/ReadingMode.vue";
-import FullScreen from "@/components/FullScreen.vue";
+import ReadingMode from "@/components/bottomRightTool/ReadingMode.vue";
+import FullScreen from "@/components/bottomRightTool/FullScreen.vue";
 import ToTop from "@/components/ToTop.vue";
-import GoBottom from "@/components/GoBottom.vue";
+import GoBottom from "@/components/bottomRightTool/GoBottom.vue";
+import BottomRightMore from "@/components/bottomRightTool/BottomRightMore.vue";
 
 interface Props {
   toTop?: boolean,
@@ -19,7 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const isContainerVisible = ref(false)
-const emit = defineEmits(['readingMode'])
+const emits = defineEmits(['readingMode'])
 
 function toggleContainer() {
   isContainerVisible.value = !isContainerVisible.value
@@ -30,19 +31,22 @@ function toggleContainer() {
   <!--右下角工具栏-->
   <div class="container-div">
     <div class="hide" :class="{visible: isContainerVisible}">
-      <div v-if="readingMode" @click="emit('readingMode', true)">
+      <div v-if="readingMode" @click="emits('readingMode', true)">
         <ReadingMode></ReadingMode>
       </div>
       <FullScreen></FullScreen>
     </div>
-    <div class="my-4">
-      <ToTop v-if="toTop"></ToTop>
+    <div class="my-4" @click="toggleContainer">
+      <BottomRightMore></BottomRightMore>
+    </div>
+    <div class="mb-4" v-if="toTop">
+      <ToTop></ToTop>
     </div>
     <div class="mb-4" v-if="toComment">
       <GoBottom></GoBottom>
     </div>
-    <div class="scroll_percentage" v-if="scrollPercentage">
-      <slot name="scroll_percentage"></slot>
+    <div class="scroll-percentage" v-if="scrollPercentage">
+      <slot name="scroll-percentage"></slot>
     </div>
   </div>
 </template>
@@ -61,7 +65,7 @@ function toggleContainer() {
   justify-content: flex-end;
   align-items: center;
 
-  .scroll_percentage {
+  .scroll-percentage {
     background: var(--yuzu-scroll-percentage-bg);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BottomRightLayout from "@/components/BottomRightLayout.vue";
+import BottomRightLayout from "@/components/bottomRightTool/BottomRightLayout.vue";
 
 const noDisplayComponent = computed(() => {
   return useRoute().path !== '/tree-hole'
@@ -18,7 +18,7 @@ const noDisplayComponent = computed(() => {
   <template v-if="noDisplayComponent">
     <Footer></Footer>
   </template>
-  <BottomRightLayout></BottomRightLayout>
+  <BottomRightLayout to-top></BottomRightLayout>
 </template>
 
 <style scoped lang="scss">
