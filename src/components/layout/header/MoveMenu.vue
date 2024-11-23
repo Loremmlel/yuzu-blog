@@ -74,12 +74,6 @@ const env = import.meta.env
           留言板
         </el-menu-item>
       </el-sub-menu>
-      <el-menu-item index="/link" @click="isClose">
-        <el-icon>
-          <Link></Link>
-        </el-icon>
-        友链
-      </el-menu-item>
       <template v-if="env.VITE_MUSIC_FRONTEND_URL">
         <el-menu-item index="/music">
           <el-icon>

@@ -32,7 +32,9 @@ const router = useRouter()
 const mode = useColorMode()
 
 onMounted(async () => {
-  window.customElements.define('my-day-night-toggle-button', DayNightToggleButton)
+  if (!window.customElements.get('my-day-night-toggle-button')) {
+    window.customElements.define('my-day-night-toggle-button', DayNightToggleButton)
+  }
   await userStore.getInfo()
 })
 
@@ -172,12 +174,6 @@ function changeToggle({detail}) {
               留言板
             </el-menu-item>
           </el-sub-menu>
-          <el-menu-item index="/link">
-            <el-icon>
-              <Link></Link>
-            </el-icon>
-            友链
-          </el-menu-item>
           <template v-if="env.VITE_MUSIC_FRONTEND_URL">
             <el-menu-item index="/music">
               <el-icon>
