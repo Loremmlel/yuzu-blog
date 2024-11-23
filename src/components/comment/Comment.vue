@@ -264,7 +264,8 @@ function recursionReplyBtn(childComment: (Comment & { showReplyBox: boolean })[]
               </div>
               <div class="OvO-heo" v-show="optionsIndex === 1">
                 <div>
-                  <img v-for="(src, key) in heo" :key="key" :title="key" :src="src" @click="addEmoji(key)">
+                  <img v-for="(src, key) in heo" :key="key" :title="key" :src="src" @click="addEmoji(key)"
+                       :alt="key">
                 </div>
               </div>
             </el-scrollbar>
@@ -297,38 +298,41 @@ function recursionReplyBtn(childComment: (Comment & { showReplyBox: boolean })[]
               </div>
               <div>{{ comment.createTime }}</div>
             </div>
+            <div>
+              <SvgIcon @click="onLikeClick(comment)" v-show="!comment.isLike" name="like"
+                       class="cursor-pointer"></SvgIcon>
+              <SvgIcon @click="onCancelLikeClick(comment)" v-show="comment.isLike" name="like-selected"
+                       class="cursor-pointer"></SvgIcon>
+              <span style="font-size: 0.8em;color: grey">{{ comment.likeCount }}</span>
+              <SvgIcon @click="replyFun(comments, comment.id)" name="comment"
+                       style="margin:0 0.2em 0 0.5rem;cursor: pointer"></SvgIcon>
+              <span class="text-sm text-gray-400">{{ comment.childCommentCount }}</span>
+            </div>
           </div>
-          <div>
-            <SvgIcon @click="onLikeClick(comment)" v-show="!comment.isLike" name="like"
-                     class="cursor-pointer"></SvgIcon>
-            <SvgIcon @click="onCancelLikeClick(comment)" v-show="comment.isLike" name="like-selected"
-                     class="cursor-pointer"></SvgIcon>
-            <span class="text-sm text-gray-400">{{ comment.childCommentCount }}</span>
+          <div class="comment-content-body">
+            <div>
+              <MdPreview :modelValue="comment.commentContent"></MdPreview>
+            </div>
           </div>
-        </div>
-        <div class="comment-content-body">
-          <div>
-            <MdPreview :modelValue="comment.commentContent"></MdPreview>
+          <!--回复框-->
+          <template v-if="isLoading">
+            <ReplyBox :type="type" :comment="comment" :get-comments="getComments" :page-size="pageSize"></ReplyBox>
+          </template>
+          <!--子评论-->
+          <template v-if="comment.childComment && comment.childComment.length">
+            <ChildComment :reply-fun="replyFun" :like-fun="onLikeClick" :cancel-like-fun="onCancelLikeClick"
+                          :comment="comment" :author-id="authorId" :show-all-child-comments="showAllChildComments"
+                          :get-comments="getComments" :page-size="pageSize" :type="type"></ChildComment>
+          </template>
+          <!--查看更多-->
+          <div class="flex justify-center mt-4" v-if="comment.childCommentCount >= 2">
+            <el-button type="info" plain size="small" @click="showAllChildComments=true" v-if="!showAllChildComments">
+              查看全部{{ comment.childCommentCount }}条回复
+            </el-button>
+            <el-button type="info" plain size="small" @click="showAllChildComments=false" v-if="showAllChildComments">
+              收起回复
+            </el-button>
           </div>
-        </div>
-        <!--回复框-->
-        <template v-if="isLoading">
-          <ReplyBox :type="type" :comment="comment" :get-comments="getComments" :page-size="pageSize"></ReplyBox>
-        </template>
-        <!--子评论-->
-        <template v-if="comment.childComment && comment.childComment.length">
-          <ChildComment :reply-fun="replyFun" :like-fun="replyFun" :cancel-like-fun="cancelLike" :comment="comment"
-                        :author-id="authorId" :show-all-child-comments="showAllChildComments"
-                        :get-comments="getComments" :page-size="pageSize" :type="type"></ChildComment>
-        </template>
-        <!--查看更多-->
-        <div class="flex justify-center mt-4" v-if="comment.childCommentCount >= 2">
-          <el-button type="info" plain size="small" @click="showAllChildComments=true" v-if="!showAllChildComments">
-            查看全部{{ comment.childCommentCount }}条回复
-          </el-button>
-          <el-button type="info" plain size="small" @click="showAllChildComments=false" v-if="showAllChildComments">
-            收起回复
-          </el-button>
         </div>
       </div>
     </div>

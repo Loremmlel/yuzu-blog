@@ -8,8 +8,8 @@ const id = 'preview-only';
 <template>
   <div class="card px-[10px]" v-slide-in>
     <div class="title">
-      <div class="title_text">
-        <SvgIcon class="scale" name="directory" width="30" height="30"></SvgIcon>
+      <div class="title-text">
+        <SvgIcon class="scale" name="directory" width="30px" height="30px"></SvgIcon>
         <span style="margin-left: 10px">目录</span>
       </div>
     </div>
@@ -54,7 +54,6 @@ const id = 'preview-only';
 .card {
   background-color: var(--el-bg-color);
   width: $card-width;
-  margin: $card-margin;
   border: 1px solid var(--el-border-color);
   border-radius: $border-radius;
   // 添加阴影

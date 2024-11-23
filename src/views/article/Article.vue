@@ -20,7 +20,6 @@ const router = useRouter()
 const websiteStore = useWebsiteStore()
 const mode = useColorMode()
 const id = 'preview-only'
-const scrollElement = document.documentElement
 const isShowMoveCatalog = ref(false)
 const isLoading = ref(false)
 
@@ -177,7 +176,7 @@ function toggleReadingMode() {
 
 <template>
   <div v-show="!isReadingMode">
-    <Main>
+    <Main is-sidebar>
       <template #header>
         <Header></Header>
       </template>
@@ -235,11 +234,7 @@ function toggleReadingMode() {
                   <strong>版权声明: </strong>
                 </div>
                 <div class="license-text">
-                  本站所有文章除特殊声明外，其著作权归站长所有（年彬除外），且均采用
-                  &nbsp;
-                  <a class="copyright-a" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
-                     target="_blank">CC BY-NC-SA 4.0</a> &nbsp;
-                  许可协议。转载请注明文章出处!
+                  本站所有文章除特殊声明外，其著作权归站长所有（年彬除外），转载请注明文章出处!
                 </div>
               </div>
             </div>
@@ -292,23 +287,31 @@ function toggleReadingMode() {
             </div>
           </div>
           <Comment :type="1" :like-type="2" :author-id="articleDetail.userId" :type-id="articleDetail.id"
-                   v-if="isLoading"></Comment>
+                   v-if="isLoading" is-show-header></Comment>
         </div>
       </template>
       <template #information>
-        <InfoCard></InfoCard>
-        <Card title="公告" prefix-icon="announcement" suffix-icon="jt_y" :is-dithering="true" :is-arrow="true"
-              @invoke="announcement">
-          <pre class="pre-text">{{ websiteStore.webInfo?.sidebarAnnouncement }}</pre>
-        </Card>
-        <ElectronicClocks></ElectronicClocks>
-        <div class="sticky-layout">
-          <div class="mt-[2.5em]">
-            <DirectoryCard></DirectoryCard>
+        <div class="flex flex-col gap-y-20 ml-10">
+          <div class="box-border">
+            <InfoCard></InfoCard>
           </div>
-          <div v-if="articleDetail.categoryId !== ''">
-            <RandomArticle :category-id="articleDetail.categoryId.toString()"
-                           :article-id="route.params.id" title="相关推荐" prefix-icon="query_tasks"></RandomArticle>
+          <Card title="公告" prefix-icon="announcement" suffix-icon="jt_y" :is-dithering="true" :is-arrow="true"
+                @invoke="announcement">
+            <pre class="pre-text">
+              {{ websiteStore.webInfo?.sidebarAnnouncement }}
+            </pre>
+          </Card>
+          <div>
+            <ElectronicClocks></ElectronicClocks>
+          </div>
+          <div class="sticky-layout flex flex-col gap-y-10">
+            <div class="">
+              <DirectoryCard></DirectoryCard>
+            </div>
+            <div v-if="articleDetail.categoryId !== undefined && articleDetail.categoryId !== ''">
+              <RandomArticle :category-id="articleDetail.categoryId.toString()"
+                             :article-id="route.params.id" title="相关推荐" prefix-icon="query_tasks"></RandomArticle>
+            </div>
           </div>
         </div>
       </template>
@@ -322,7 +325,7 @@ function toggleReadingMode() {
     <div @click="isReadingMode = false"
          class="z-10 w-[50px] h-[50px] bg-gray-200 hover:bg-gray-300 fixed top-[2em] right-[1em] lg:right-[5em]
          rounded flex items-center justify-center duration-300 cursor-pointer">
-      <SvgIcon name="exit-icon" style="width: 25px;height: 25px;"></SvgIcon>
+      <SvgIcon name="exit_icon" style="width: 25px;height: 25px;"></SvgIcon>
     </div>
     <div class="sm:px-1 md:px-[5rem] lg:px-[10rem] xl:px-[15rem] py-3" style="transition: all .5s ease">
       <div class="head-title" :style="`background-image: url('${articleDetail.articleCover}')`">
@@ -377,11 +380,7 @@ function toggleReadingMode() {
               <strong>版权声明： </strong>
             </div>
             <div class="license-text">
-              本站所有文章除特殊声明外，其著作权归站长所有（年彬除外），且均采用
-              &nbsp;
-              <a class="copyright-a" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
-                 target="_blank">CC BY-NC-SA 4.0</a> &nbsp;
-              许可协议。转载请注明文章出处!
+              本站所有文章除特殊声明外，其著作权归站长所有（年彬除外），转载请注明文章出处!
             </div>
           </div>
         </div>
