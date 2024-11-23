@@ -79,5 +79,19 @@ export const constantRouter: Readonly<RouteRecordRaw[]> = [
         meta: {
             title: '文章详情'
         }
+    },
+    {
+        path: '/setting',
+        name: 'setting',
+        component: () => import('@/views/Setting.vue'),
+        meta: {
+            title: '用户设置'
+        }
+    },
+    // 访问其它任何不存在的路由，重定向到首页
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/',
+        name: 'any'
     }
 ]

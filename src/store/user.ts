@@ -1,10 +1,11 @@
 import {getToken} from "@/utils/auth.ts";
 import {UserInfo} from "@/api/type.ts";
 import {getUserInfo} from "@/api/user.ts";
+import {ShallowRef} from "vue";
 
 export const useUserStore = defineStore('user', () => {
     let token = getToken()
-    const userInfo = shallowRef<UserInfo>()
+    const userInfo: ShallowRef<UserInfo> = shallowRef({})
 
     function setToken(newToken: string) {
         token = newToken
