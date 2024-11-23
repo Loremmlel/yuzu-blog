@@ -62,6 +62,7 @@ declare module 'vue' {
     Sidebar: typeof import('./../components/sidebar/Sidebar.vue')['default']
     SvgIcon: typeof import('./../components/SvgIcon.vue')['default']
     ToTop: typeof import('./../components/ToTop.vue')['default']
+    TreeHole: typeof import('./../components/amusement/TreeHole.vue')['default']
     Wave: typeof import('./../components/Wave.vue')['default']
   }
   export interface ComponentCustomProperties {

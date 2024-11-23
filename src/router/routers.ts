@@ -39,6 +39,14 @@ export const constantRouter: Readonly<RouteRecordRaw[]> = [
                 }
             },
             {
+                path: '/tree-hole',
+                component: () => import('@/views/amusement/TreeHole.vue'),
+                name: 'treeHole',
+                meta: {
+                    title: '树洞'
+                }
+            },
+            {
                 path: '/about',
                 component: () => import('@/views/About.vue'),
                 name: 'about',
