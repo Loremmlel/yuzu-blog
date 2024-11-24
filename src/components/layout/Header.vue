@@ -14,8 +14,6 @@ import {
   Fries,
   Headset,
   HomeFilled,
-  IceCreamRound,
-  Link,
   Postcard,
   PriceTag,
   Promotion,
@@ -75,7 +73,6 @@ function handleSelect(key: string, keyPath: string[]) {
 }
 
 const dialogVisible = ref(false)
-const drawer = ref(false)
 const env = import.meta.env
 
 function changeToggle({detail}) {
@@ -154,26 +151,18 @@ function changeToggle({detail}) {
               标签
             </el-menu-item>
           </el-sub-menu>
-          <el-sub-menu index="3">
-            <template #title>
-              <el-icon>
-                <IceCreamRound></IceCreamRound>
-              </el-icon>
-              其他
-            </template>
-            <el-menu-item index="/tree-hole">
-              <el-icon>
-                <Fries></Fries>
-              </el-icon>
-              树洞
-            </el-menu-item>
-            <el-menu-item index="/message">
-              <el-icon>
-                <Postcard></Postcard>
-              </el-icon>
-              留言板
-            </el-menu-item>
-          </el-sub-menu>
+          <el-menu-item index="/tree-hole">
+            <el-icon>
+              <Fries></Fries>
+            </el-icon>
+            树洞
+          </el-menu-item>
+          <el-menu-item index="/message">
+            <el-icon>
+              <Postcard></Postcard>
+            </el-icon>
+            留言板
+          </el-menu-item>
           <template v-if="env.VITE_MUSIC_FRONTEND_URL">
             <el-menu-item index="/music">
               <el-icon>
@@ -241,18 +230,6 @@ function changeToggle({detail}) {
         </el-menu>
       </div>
     </transition>
-  </div>
-  <div>
-    <el-drawer v-model="drawer" :with-header="true" size="40%" direction="ltr" :show-close="false">
-      <template #header>
-        <span style="font-size: 1.2rem">导航</span>
-        <el-button :icon="Close" style="background: none;font-size: 1.5rem;width: 30px;border: none"
-                   @click="drawer = false"></el-button>
-      </template>
-      <template #default>
-        <MoveMenu @update:closeDrawer="drawer = false"></MoveMenu>
-      </template>
-    </el-drawer>
   </div>
 </template>
 
@@ -367,11 +344,5 @@ function changeToggle({detail}) {
   @media (max-width: 600px) {
     width: 90%;
   }
-}
-
-:deep(.el-drawer__header) {
-  border-bottom: solid 1px var(--el-border-color);
-  padding: 0.8rem;
-  margin-bottom: 0;
 }
 </style>
