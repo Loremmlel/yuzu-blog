@@ -176,13 +176,13 @@ export interface Link {
 
 export type LinkListRes = PRes<Link[]>
 
-export interface treeHole {
+export interface TreeHole {
     nickname: string,
     avatar: string,
     content: string
 }
 
-export type GetTreeHoleListRes = PRes<treeHole>
+export type GetTreeHoleListRes = PRes<TreeHole[]>
 
 export interface UserInfo {
     nickname: string;
