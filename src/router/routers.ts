@@ -47,6 +47,29 @@ export const constantRouter: Readonly<RouteRecordRaw[]> = [
                 }
             },
             {
+                path: '/message',
+                name: 'message',
+                component: () => import('@/views/amusement/Message.vue'),
+                children: [
+                    {
+                        path: '',
+                        name: 'messageList',
+                        component: () => import('@/views/amusement/MessageList.vue'),
+                        meta: {
+                            title: '留言板'
+                        }
+                    },
+                    {
+                        path: '/message/detail/:id?',
+                        name: 'messageDetail',
+                        component: () => import('@/views/amusement/MessageDetail.vue'),
+                        meta: {
+                            title: '留言详情'
+                        }
+                    }
+                ]
+            },
+            {
                 path: '/about',
                 component: () => import('@/views/About.vue'),
                 name: 'about',

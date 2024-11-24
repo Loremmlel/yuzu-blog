@@ -145,7 +145,7 @@ export interface LeaveWord {
     favoriteCount: number
 }
 
-export type GetLeaveWordRes = PRes<LeaveWord>
+export type GetLeaveWordListRes = PRes<LeaveWord[]>
 
 export interface Like {
     id: string,

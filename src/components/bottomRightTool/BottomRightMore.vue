@@ -5,8 +5,8 @@
 <template>
   <div>
     <el-tooltip effect="light" content="更多功能" placement="right">
-      <div content="more-rotating">
-        <svg-icon name="bottom_right_more" color="back-to-top"></svg-icon>
+      <div class="more-rotating">
+        <svg-icon name="bottom_right_more" class="back-to-top"></svg-icon>
       </div>
     </el-tooltip>
   </div>

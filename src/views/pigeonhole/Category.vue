@@ -73,7 +73,7 @@ async function getArticle(id: string) {
       <template #content>
         <template v-if="!isQueryArticle">
           <div class="category-container">
-            <div content="title">
+            <div class="title">
               文章分类
             </div>
             <div class="item-container">
